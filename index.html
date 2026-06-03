@@ -517,13 +517,23 @@
     .hero-visual {
       position: relative;
       min-height: 455px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .hero-info-grid {
+      width: min(100%, 460px);
       display: grid;
-      place-items: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .profile-card {
       position: relative;
-      width: min(100%, 410px);
+      width: min(100%, 405px);
       padding: 18px;
       border: 1px solid var(--line);
       border-radius: 32px;
@@ -567,56 +577,60 @@
       transform: scale(1.03);
     }
 
+    .mini-card,
     .availability-card {
-      position: absolute;
-      right: -14px;
-      bottom: 60px;
-      max-width: 245px;
-      padding: 15px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 20px;
-      color: #fff;
-      background: rgba(7, 11, 22, 0.76);
+      position: relative;
+      width: 100%;
+      min-height: 118px;
+      padding: 16px 17px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 22px;
+      color: var(--text);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.055)),
+        rgba(7, 11, 22, 0.48);
       backdrop-filter: blur(18px);
       box-shadow: var(--shadow-soft);
-      animation: bob 4s var(--ease) infinite alternate;
+      overflow: hidden;
+      animation: none;
     }
 
+    .mini-card::before,
+    .availability-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.28;
+      pointer-events: none;
+      background: radial-gradient(circle at 0% 0%, rgba(96, 165, 250, .45), transparent 45%);
+    }
+
+    .availability-card::before {
+      background: radial-gradient(circle at 100% 0%, rgba(139, 92, 246, .48), transparent 45%);
+    }
+
+    [data-theme="light"] .mini-card,
     [data-theme="light"] .availability-card {
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.86);
     }
 
     .availability-card strong,
     .mini-card strong {
       display: block;
-      font-size: 0.88rem;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 7px;
+      font-size: 0.9rem;
     }
 
     .availability-card span,
     .mini-card span {
       display: block;
+      position: relative;
+      z-index: 1;
       color: var(--muted);
-      font-size: 0.8rem;
-      line-height: 1.45;
-    }
-
-    .mini-card {
-      position: absolute;
-      left: -14px;
-      top: 44px;
-      max-width: 210px;
-      padding: 15px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      border-radius: 20px;
-      background: rgba(7, 11, 22, 0.72);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow-soft);
-      animation: bob 4.5s var(--ease) infinite alternate-reverse;
-    }
-
-    [data-theme="light"] .mini-card {
-      background: rgba(255, 255, 255, 0.84);
+      font-size: 0.82rem;
+      line-height: 1.48;
     }
 
     @keyframes bob {
@@ -700,23 +714,16 @@
     }
 
     .panel {
-      position: sticky;
-      top: 104px;
-      max-height: calc(100vh - 122px);
-      overflow: auto;
+      position: relative;
+      top: auto;
+      max-height: none;
+      overflow: visible;
       padding: 22px;
       border-radius: var(--radius-xl);
-      scrollbar-width: thin;
-      scrollbar-color: rgba(96, 165, 250, .45) transparent;
     }
 
-    .panel::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    .panel::-webkit-scrollbar-thumb {
-      border-radius: 999px;
-      background: rgba(96, 165, 250, .45);
+    main {
+      min-width: 0;
     }
 
     .panel section + section {
@@ -1250,17 +1257,12 @@
         grid-template-columns: 1fr;
       }
 
-      .availability-card,
-      .mini-card {
-        position: static;
-        max-width: none;
-        margin-top: 12px;
-        animation: none;
-      }
-
       .hero-visual {
         min-height: auto;
-        display: block;
+      }
+
+      .hero-info-grid {
+        grid-template-columns: 1fr;
       }
 
       .profile-card {
@@ -1371,20 +1373,22 @@
         </div>
 
         <div class="hero-visual" aria-label="Profile visual area">
-          <div class="mini-card">
-            <strong>Engineering stack</strong>
-            <span>Linux · TCP/IP · Asterisk · AWS · Python · C · PyTorch</span>
-          </div>
-
           <div class="profile-card tilt">
             <div class="photo-frame">
               <img src="profile.jpeg" alt="Photo of Sufian Benallal Chakroun" class="profile-photo" />
             </div>
           </div>
 
-          <div class="availability-card">
-            <strong>Based in Madrid, Spain</strong>
-            <span>Available for telecommunications, systems, networking and software roles.</span>
+          <div class="hero-info-grid" aria-label="Profile highlights">
+            <div class="mini-card">
+              <strong>Engineering stack</strong>
+              <span>Linux · TCP/IP · Asterisk · AWS · Python · C · PyTorch</span>
+            </div>
+
+            <div class="availability-card">
+              <strong>Based in Madrid, Spain</strong>
+              <span>Available for telecommunications, systems, networking and software roles.</span>
+            </div>
           </div>
         </div>
       </div>
