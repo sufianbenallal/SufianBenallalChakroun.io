@@ -1,0 +1,223 @@
+\documentclass[9pt,a4paper]{article}
+
+% ==================== PAQUETES ====================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=0.62cm,top=0.58cm,bottom=0.58cm]{geometry}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{array}
+
+% ==================== COLORES ====================
+\definecolor{navy}{RGB}{10,20,40}
+\definecolor{accent}{RGB}{13,143,128}
+\definecolor{amber}{RGB}{176,105,26}
+\definecolor{muted}{RGB}{75,84,96}
+\definecolor{linegray}{RGB}{205,210,216}
+\definecolor{softgray}{RGB}{245,247,249}
+
+% ==================== ESTILO GLOBAL ====================
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+\linespread{0.88}
+
+\setlist[itemize]{
+  leftmargin=9pt,
+  itemsep=0.5pt,
+  topsep=0.5pt,
+  parsep=0pt,
+  partopsep=0pt,
+  label=\textcolor{accent}{\scriptsize\textbullet}
+}
+
+% ==================== CONFIGURACIÓN ====================
+\newcommand{\foto}{UAH077650.jpg}
+
+% ==================== COMANDOS ====================
+\newcommand{\cvsection}[1]{%
+  \vspace{3pt}
+  {\color{accent}\rule{7pt}{7pt}}\hspace{4pt}
+  {\bfseries\color{navy}\scriptsize #1}
+  \vspace{1pt}
+  {\color{linegray}\hrule height 0.45pt}
+  \vspace{2pt}
+}
+
+\newcommand{\entry}[3]{%
+  \begin{tabular*}{\linewidth}{@{}p{0.70\linewidth}@{\extracolsep{\fill}}r@{}}
+  \textbf{\color{navy}#1} & {\scriptsize\bfseries\color{accent}#2}
+  \end{tabular*}\\[-2pt]
+  {\scriptsize\color{muted}#3}
+  \vspace{1.5pt}
+}
+
+\newcommand{\project}[2]{%
+  \textbf{\color{navy}#1}\\[-1pt]
+  {\scriptsize\color{amber}#2}\\[-2pt]
+}
+
+\newcommand{\tags}[1]{%
+  {\scriptsize\color{muted}\textit{#1}}\vspace{1.5pt}
+}
+
+\newcommand{\skill}[2]{%
+  \textbf{\scriptsize\color{navy}#1}\\[-1pt]
+  {\scriptsize\color{muted}#2}\vspace{2.5pt}
+}
+
+% ==================== DOCUMENTO ====================
+\begin{document}
+\fontsize{8.25}{8.95}\selectfont
+
+% ==================== CABECERA ====================
+\begin{minipage}[c]{0.71\textwidth}
+{\LARGE\bfseries\color{navy}Sufian Benallal Chakroun}\\[2pt]
+{\color{accent}\bfseries Ingeniero Telemático \textperiodcentered{} Doble Máster en Ingeniería de Telecomunicación y Redes}\\[3pt]
+Alcorcón, Madrid, España \quad | \quad (+34) 628 740 184\\
+\href{mailto:sufian-benallal@hotmail.com}{sufian-benallal@hotmail.com}\\[1pt]
+\href{https://www.linkedin.com/in/sufian-benallal-chakroun-6b6aa7204/}{LinkedIn}
+\quad | \quad
+\href{https://github.com/sufianbenallal/Academic-Projects}{GitHub}
+\quad | \quad
+\href{https://sufianbenallal.github.io/SufianBenallalChakroun.io/}{CV interactivo}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.22\textwidth}
+\centering
+\IfFileExists{\foto}{
+\fcolorbox{accent}{white}{\includegraphics[width=2.85cm,height=2.85cm,keepaspectratio]{\foto}}
+}{
+\fcolorbox{accent}{softgray}{\parbox[c][2.85cm][c]{2.85cm}{\centering\scriptsize Foto}}
+}
+\end{minipage}
+
+\vspace{2pt}
+{\color{linegray}\hrule height 0.7pt}
+\vspace{4pt}
+
+% ==================== CUERPO ====================
+\begin{minipage}[t]{0.31\textwidth}
+
+\cvsection{PERFIL}
+Ingeniero telemático orientado a infraestructura de red, sistemas, automatización, ciberseguridad e ingeniería de software. Experiencia práctica con Linux, TCP/IP, Python, C/C++, VoIP, cloud, documentación técnica, localización indoor LoRa/RSSI y proyectos de IA aplicada.
+
+\cvsection{CONTACTO}
+\textbf{Ubicación:} Alcorcón, Madrid\\
+\textbf{Teléfono:} (+34) 628 740 184\\
+\textbf{Email:} \href{mailto:sufian-benallal@hotmail.com}{sufian-benallal@hotmail.com}\\
+\textbf{LinkedIn:} \href{https://www.linkedin.com/in/sufian-benallal-chakroun-6b6aa7204/}{Perfil profesional}\\
+\textbf{GitHub:} \href{https://github.com/sufianbenallal/Academic-Projects}{Proyectos académicos}
+
+\cvsection{COMPETENCIAS}
+\skill{Redes y telecomunicaciones}{TCP/IP, IPv4/IPv6, subnetting, VLANs, routing, OSPF/RIP, ACL/NAT, VPN, Wireshark, Asterisk/VoIP, LoRa, RSSI.}
+
+\skill{Programación y sistemas}{Python, C/C++, Bash, Linux, sockets, programación concurrente, SQL/MariaDB, APIs REST.}
+
+\skill{Herramientas y plataformas}{Next.js, Supabase, PostgreSQL, Vercel, AWS, AutoCAD, CommScope imVision, Git/GitHub, MATLAB, PyTorch, scikit-learn.}
+
+\skill{Datos e IA aplicada}{pandas, scikit-learn, PyTorch, Vision Transformer, procesado de señal, multilateración 3D, análisis de RSSI.}
+
+\cvsection{CERTIFICACIONES}
+\entry{CCNA 1: Introducción a las Redes}{05/2021}{Cisco Networking Academy}
+
+\entry{CCNA 2: Principios de routing y switching}{06/2021}{Cisco Networking Academy}
+
+\entry{MATLAB Onramp}{09/2024}{MathWorks Training Services}
+
+\cvsection{IDIOMAS}
+\textbf{Español:} Nativo\\
+\textbf{Inglés:} B2
+
+\cvsection{PREMIOS}
+\entry{EUGLOH Virtualization Virtuoso}{07/2025}{Universidad de Szeged, Hungría}
+Reconocimiento en un programa internacional práctico centrado en virtualización y flujos de redes neuronales aplicadas para predicción de enfermedades torácicas.
+
+\cvsection{REFERENCIAS}
+Disponibles bajo solicitud.
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.66\textwidth}
+
+\cvsection{PROYECTOS DESTACADOS}
+
+\project{Plataforma de Gestión de Auditorías de Racks}{BOINSCA, S.L. \textperiodcentered{} Ciudad deportiva profesional}
+\begin{itemize}
+\item Aplicación web para gestionar auditorías técnicas de 55 racks: checklists, fotografías, inventario, incidencias e informes PDF.
+\item Paneles para técnicos, administradores y cliente, con guardado progresivo, validación, bloqueo de racks, permisos y trazabilidad.
+\item Backend con Supabase/PostgreSQL, almacenamiento de imágenes, políticas de seguridad y despliegue en Vercel para uso real en campo.
+\end{itemize}
+\tags{Next.js \textperiodcentered{} Supabase \textperiodcentered{} PostgreSQL \textperiodcentered{} Vercel}
+
+\project{Sistema Predictivo de Localización de Tomas de Red}{Estadio Santiago Bernabéu \textperiodcentered{} Real Madrid}
+\begin{itemize}
+\item Prototipo para estimar ubicación de tomas de red sin coordenadas dentro de infraestructura CommScope imVision.
+\item Consolidación y depuración de más de 10.000 registros de tomas, racks, cableado y ecometrías.
+\item Comparativa KNN, Random Forest, Extra Trees, Gradient Boosting y Medoid; validación en 2.027 casos y priorización de 133 tomas de alta confianza.
+\end{itemize}
+\tags{Python \textperiodcentered{} pandas \textperiodcentered{} scikit-learn \textperiodcentered{} Ensemble Learning \textperiodcentered{} AutoCAD/DXF}
+
+\project{Estimación de Orientación Solar mediante Análisis de Sombras}{Grupo GRAM \textperiodcentered{} Universidad de Alcalá}
+\begin{itemize}
+\item Flujo de visión por computador para estimar orientación solar a partir de sombras en imágenes reales.
+\item Anotación asistida en MATLAB con geometría proyectiva, puntos de fuga y ángulos reales de sombra.
+\item Ajuste de modelos Vision Transformer preentrenados, logrando un error aproximado de $5^{\circ}$.
+\end{itemize}
+\tags{Computer Vision \textperiodcentered{} MATLAB \textperiodcentered{} PyTorch \textperiodcentered{} Vision Transformer}
+
+\project{Sistema de Localización Indoor basado en LoRa}{Grupo GRAM \textperiodcentered{} Universidad de Alcalá}
+\begin{itemize}
+\item Prototipo de posicionamiento indoor con 4 emisores LoRa distribuidos por el edificio y medidas RSSI en puntos de referencia.
+\item Conversión del plano del edificio a coordenadas métricas 3D, considerando diferencias de altura entre plantas.
+\item Procesado de logs LoRa en MATLAB, filtrado por mediana móvil, calibración RSSI-distancia y localización mediante multilateración 3D.
+\end{itemize}
+\tags{LoRa \textperiodcentered{} RSSI \textperiodcentered{} MATLAB \textperiodcentered{} Indoor Positioning \textperiodcentered{} Multilateración 3D}
+
+\cvsection{EXPERIENCIA}
+
+\entry{Becario de Ingeniería de Telecomunicaciones}{04/2026 -- 07/2026}{BOINSCA, S.L., Madrid, España}
+\begin{itemize}
+\item Administración de CommScope imVision System Manager y soporte a operaciones sobre racks, tomas, trazas e infraestructura.
+\item Automatización de cargas, descargas y comprobaciones masivas mediante API y scripts Python.
+\item Planos AutoCAD, documentación técnica y soporte en incidencias de VLANs, IP, switches, WiFi, VPN y acceso remoto.
+\end{itemize}
+
+\entry{Investigador a Tiempo Parcial}{03/2026 -- Actualidad}{Universidad de Alcalá, España \textperiodcentered{} Grupo GRAM}
+\begin{itemize}
+\item Participación en proyectos de visión por computador y localización indoor inalámbrica mediante LoRa/RSSI.
+\item Preparación de datos, anotación en MATLAB, procesado de señal, entrenamiento de modelos, validación experimental y documentación técnica.
+\end{itemize}
+
+\entry{Árbitro de Fútbol}{02/2017 -- Actualidad}{Real Federación de Fútbol de Madrid, España}
+\begin{itemize}
+\item Toma de decisiones bajo presión, comunicación efectiva, gestión de conflictos y trabajo en equipo.
+\end{itemize}
+
+\entry{Técnico de Telecomunicaciones e IT}{03/2021 -- 09/2021}{Apple Spezialisten, Berlín, Alemania}
+\begin{itemize}
+\item Prácticas Erasmus+ continuadas como contrato laboral; diagnóstico y reparación de hardware/software Macintosh y soporte IT.
+\end{itemize}
+
+\cvsection{EDUCACIÓN}
+
+\entry{Doble Máster en Ingeniería de Telecomunicación y Redes}{09/2026}{Universidad Politécnica de Madrid, España}
+
+\entry{Grado en Ingeniería Telemática}{2021 -- 2026}{Universidad de Alcalá, España}
+
+\entry{Erasmus+ Exchange in Computer Science}{2025 -- 02/2026}{Oxford Brookes University, Reino Unido}
+{\scriptsize\color{muted}Asignaturas: Machine Learning, Artificial Intelligence, Foundations of Security, Applied Software Engineering.}
+
+\entry{CFGS en Sistemas de Telecomunicaciones e Informáticos}{2019 -- 2021}{IES Benjamín Rúa, España}
+
+\cvsection{VOLUNTARIADO}
+
+\entry{Asistente de Profesor de Español}{09/2025 -- 12/2025}{Cheney School, Oxford, Reino Unido}
+
+\end{minipage}
+
+\end{document}
